@@ -1,0 +1,40 @@
+table=()
+v="✅"
+x="❌"
+
+add () {
+	if [[ $1 == "v#" ]]; then
+		first=$1
+		shift
+		added=""
+		table=(${table[@]} "$v — ")
+		for i in "$@"; do
+			table=(${table[@]} $i)
+			#echo ${table[@]}
+		done
+		table=(${table[@]} "\n")
+		#printf ${table[@]}
+	elif [[ $1 == "x#" ]]; then
+		first=$1
+		shift
+		table=(${table[@]} "$x — ")
+		for i in "$@"; do
+			table=(${table[@]} $i)
+			#echo ${table[@]}
+		done
+		table=(${table[@]} "\n")
+		#printf ${table[@]}
+	fi
+}
+
+print () {
+	for item in ${table[@]}; do
+		if [[ $item == "\n" ]]; then
+			printf "$item"
+		else
+			printf "$item "
+		fi
+	done
+	#printf ${table[@]}
+	#printf ""
+}

@@ -1,0 +1,43 @@
+exitProgram () {
+	echo "Exiting"
+	sleep 1
+	clear
+	exit 0
+}
+
+runstuff () {
+	# bash runstuff.sh
+	clear
+	
+	while true; do
+		echo "Runstuff"
+		echo "[1] – Dad Joke"
+		echo "[2] – Run Things"
+		echo "[3] – Exit"
+		printf "[?]: "
+		read in
+		if [ $in = "1" ]; then
+			curl -H "Accept: text/plain" https://icanhazdadjoke.com/; echo
+			read n
+		elif [ $in = "2" ]; then
+			echo "Runstuff – Run Things"
+			echo "[1] – Bash"
+			echo "[2] – Node"
+			echo "[3] – Cancel"
+			printf "[?]: "
+			read in
+			if [ $in = "1" ]; then
+				printf "File: "
+				read f
+				bash $f
+			elif [ $in = "2" ]; then
+				node
+			fi
+		elif [ $in = "3" ]; then
+			exitProgram
+		else
+			echo "Not an option"
+		fi
+		clear
+	done
+}

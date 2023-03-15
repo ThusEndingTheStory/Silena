@@ -1,0 +1,22 @@
+rCharByChar () {
+	cbcCont=()
+	while read -n1 char; do
+ 		cbcCont=(${cbcCont[@]} $char)
+	done < $1
+}
+
+rFile () {
+	cat $1
+}
+
+create () {
+	touch $1
+}
+
+clearFile () {
+	printf "" > $1
+}
+
+remove () {
+	rm $1
+}

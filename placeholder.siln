@@ -1,0 +1,3 @@
+write "Say something: "
+input something
+write "You said ${something}\n"
