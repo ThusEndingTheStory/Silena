@@ -1,1 +1,2 @@
-export PATH=/home/runner/.silena/bin:$PATH
+export PATH=/silena2/silena:$PATH
+echo $PATH
